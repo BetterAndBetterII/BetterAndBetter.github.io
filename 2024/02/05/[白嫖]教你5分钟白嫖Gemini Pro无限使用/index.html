@@ -144,13 +144,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-count">12</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-count">19</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -231,9 +231,7 @@
     
     
     <div class="post-body" itemprop="articleBody"><!-- 摘要 -->
-<p>之前一段时间Google Gemini腾空出世，API KEY目前不收费！但是由于种种原因，很多人无法使用。今天我就来教大家如何白嫖Gemini Pro的API，搭建静态聊天网站，搭建中转API反向代理，并且无限使用哦！（每分钟60次）</p>
-<span id="more"></span>
-<p><strong>参考</strong>：</p>
+<p>之前一段时间Google Gemini腾空出世，API KEY目前不收费！但是由于种种原因，很多人无法使用。今天我就来教大家如何白嫖Gemini Pro的API，搭建静态聊天网站，搭建中转API反向代理，并且无限使用哦！（每分钟60次）<br><span id="more"></span><br><strong>参考</strong>：</p>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://github.com/babaohuang/GeminiProChat">GeminiProChat</a></li>
 <li><a target="_blank" rel="noopener" href="https://simonmy.com/posts/%E4%BD%BF%E7%94%A8netlify%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86google-palm-api.html">使用Netlify反向代理Google PaLM(Gemini) API</a></li>
@@ -257,12 +255,8 @@
 <h2 id="3-申请Gemini-Pro-API-Key"><a href="#3-申请Gemini-Pro-API-Key" class="headerlink" title="3. 申请Gemini Pro API Key"></a>3. 申请Gemini Pro API Key</h2><p>接下来，你需要申请一个Gemini Pro的API Key。你可以在<a target="_blank" rel="noopener" href="https://makersuite.google.com/app/apikey">API申请</a>申请。</p>
 <p>你只需要一个谷歌账号，然后点击创建API Key，然后就可以得到你的API Key了。</p>
 <h3 id="测试你的API-Key"><a href="#测试你的API-Key" class="headerlink" title="测试你的API Key"></a>测试你的API Key</h3><p>由于你刚刚已经部署了palm-netlify-proxy，你可以直接访问你的网站，然后在网站上测试你的API Key。</p>
-<p>这是谷歌提供的标准测试命令(Linux)：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">curl \</span><br><span class="line">  -H <span class="string">&#x27;Content-Type: application/json&#x27;</span> \</span><br><span class="line">  -d <span class="string">&#x27;&#123;&quot;contents&quot;:[&#123;&quot;parts&quot;:[&#123;&quot;text&quot;:&quot;Write a story about a magic backpack&quot;&#125;]&#125;]&#125;&#x27;</span> \</span><br><span class="line">  -X POST https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=YOUR_API_KEY</span><br></pre></td></tr></table></figure>
-
-<p>如果你是在Windows下，你可以使用CMD来运行这个命令。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -H <span class="string">&quot;Content-Type: application/json&quot;</span> -d <span class="string">&quot;&#123;\&quot;contents\&quot;:[&#123;\&quot;parts\&quot;:[&#123;\&quot;text\&quot;:\&quot;Write a story about a magic backpack\&quot;&#125;]&#125;]&#125;&quot;</span> -X POST https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=YOUR_API_KEY</span><br></pre></td></tr></table></figure>
-
+<p>这是谷歌提供的标准测试命令(Linux)：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">curl \</span><br><span class="line">  -H <span class="string">&#x27;Content-Type: application/json&#x27;</span> \</span><br><span class="line">  -d <span class="string">&#x27;&#123;&quot;contents&quot;:[&#123;&quot;parts&quot;:[&#123;&quot;text&quot;:&quot;Write a story about a magic backpack&quot;&#125;]&#125;]&#125;&#x27;</span> \</span><br><span class="line">  -X POST https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=YOUR_API_KEY</span><br></pre></td></tr></table></figure></p>
+<p>如果你是在Windows下，你可以使用CMD来运行这个命令。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -H <span class="string">&quot;Content-Type: application/json&quot;</span> -d <span class="string">&quot;&#123;\&quot;contents\&quot;:[&#123;\&quot;parts\&quot;:[&#123;\&quot;text\&quot;:\&quot;Write a story about a magic backpack\&quot;&#125;]&#125;]&#125;&quot;</span> -X POST https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=YOUR_API_KEY</span><br></pre></td></tr></table></figure></p>
 <p>你可以把<code>YOUR_API_KEY</code>替换成你的API Key，<code>generativelanguage.googleapis.com</code>替换为你刚刚创建的Netlify的域名或者你自己的域名。</p>
 <p>然后在终端中运行这个命令，如果返回了一些json数据，那么你的API Key和中转服务都是可用的。</p>
 <h2 id="4-部署Gemini-Pro-Chat"><a href="#4-部署Gemini-Pro-Chat" class="headerlink" title="4. 部署Gemini Pro Chat"></a>4. 部署Gemini Pro Chat</h2><p>接下来，你需要部署Gemini Pro Chat。你可以在<a target="_blank" rel="noopener" href="https://github.com/babaohuang/GeminiProChat">这里</a>。</p>
@@ -305,6 +299,9 @@
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/2024/12/13/Chat-With-CUHKSZ/" rel="next" title="Chat With CUHKSZ - 你的智能校园助手">
+                  Chat With CUHKSZ - 你的智能校园助手 <i class="fa fa-angle-right"></i>
+                </a>
             </div>
           </div>
     </footer>
